@@ -1,13 +1,14 @@
 import json
 import os
-import urllib.request
-import urllib.error
 import base64
+import smtplib
 import boto3
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 
 def handler(event: dict, context) -> dict:
-    """Принимает заявку с лендинга и отправляет её в Telegram."""
+    """Принимает заявку с лендинга и отправляет её на почту через Gmail."""
 
     cors_headers = {
         'Access-Control-Allow-Origin': '*',
@@ -33,18 +34,7 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'error': 'Имя и контакт обязательны'})
         }
 
-    token = os.environ['TELEGRAM_BOT_TOKEN']
-    chat_id = os.environ['TELEGRAM_CHAT_ID']
-
-    text = (
-        f"\U0001f4f8 *Новая заявка на bediff*\n\n"
-        f"\U0001f464 *Имя:* {name}\n"
-        f"\U0001f4f1 *Контакт:* {contact}\n"
-        f"\U0001f3af *Услуга:* {service}\n"
-        f"\U0001f4ac *Пожелание:* {wish if wish else chr(8212)}\n"
-        f"\U0001f5bc *Фото:* {'приложено' if photo_base64 else 'не приложено'}"
-    )
-
+    photo_url = None
     if photo_base64:
         s3 = boto3.client(
             's3',
@@ -56,17 +46,34 @@ def handler(event: dict, context) -> dict:
         key = f"orders/{contact.replace('@', '_')}_{photo_name}"
         s3.put_object(Bucket='files', Key=key, Body=photo_data, ContentType='image/jpeg')
         photo_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/files/{key}"
-        text += f"\n\U0001f517 {photo_url}"
 
-    api_url = f"https://api.telegram.org/bot{token}/sendMessage"
-    payload = json.dumps({
-        'chat_id': chat_id,
-        'text': text,
-        'parse_mode': 'Markdown',
-    }).encode('utf-8')
+    gmail_user = 'burntime.dota@gmail.com'
+    gmail_password = os.environ['GMAIL_APP_PASSWORD'].replace(' ', '')
 
-    req = urllib.request.Request(api_url, data=payload, headers={'Content-Type': 'application/json'})
-    urllib.request.urlopen(req)
+    photo_html = f'<a href="{photo_url}">Посмотреть фото</a>' if photo_url else '—'
+
+    html = f"""
+    <html><body style="font-family: Arial, sans-serif; color: #222; max-width: 600px;">
+      <h2 style="border-bottom: 2px solid #000; padding-bottom: 8px;">Новая заявка на bediff</h2>
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><td style="padding: 8px 0; color: #666; width: 140px;">Имя</td><td style="padding: 8px 0;"><b>{name}</b></td></tr>
+        <tr><td style="padding: 8px 0; color: #666;">Контакт</td><td style="padding: 8px 0;"><b>{contact}</b></td></tr>
+        <tr><td style="padding: 8px 0; color: #666;">Услуга</td><td style="padding: 8px 0;"><b>{service}</b></td></tr>
+        <tr><td style="padding: 8px 0; color: #666;">Пожелание</td><td style="padding: 8px 0;">{wish if wish else '—'}</td></tr>
+        <tr><td style="padding: 8px 0; color: #666;">Фото</td><td style="padding: 8px 0;">{photo_html}</td></tr>
+      </table>
+    </body></html>
+    """
+
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = f'Новая заявка от {name} — bediff'
+    msg['From'] = gmail_user
+    msg['To'] = gmail_user
+    msg.attach(MIMEText(html, 'html'))
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+        server.login(gmail_user, gmail_password)
+        server.sendmail(gmail_user, gmail_user, msg.as_string())
 
     return {
         'statusCode': 200,
