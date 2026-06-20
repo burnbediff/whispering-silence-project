@@ -45,7 +45,7 @@ def handler(event: dict, context) -> dict:
         photo_data = base64.b64decode(photo_base64)
         key = f"orders/{contact.replace('@', '_')}_{photo_name}"
         s3.put_object(Bucket='files', Key=key, Body=photo_data, ContentType='image/jpeg')
-        photo_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/files/{key}"
+        photo_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{key}"
 
     gmail_user = 'burntime.dota@gmail.com'
     gmail_password = os.environ['GMAIL_APP_PASSWORD'].replace(' ', '')
