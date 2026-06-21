@@ -38,7 +38,7 @@ export default function Promo() {
   }, []);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black select-none">
+    <div className="relative w-full overflow-hidden bg-black select-none" style={{ height: "100svh" }}>
       {SLIDES.map((slide, i) => (
         <div
           key={i}
