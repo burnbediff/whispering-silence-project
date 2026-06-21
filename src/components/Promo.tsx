@@ -33,7 +33,7 @@ export default function Promo() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((c) => (c === SLIDES.length - 1 ? 0 : c + 1));
-    }, 3000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
