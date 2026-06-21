@@ -38,11 +38,11 @@ export default function Promo() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden bg-black select-none" style={{ height: "100svh" }}>
+    <div className="relative w-full overflow-hidden bg-neutral-900 select-none" style={{ height: "100svh" }}>
       {SLIDES.map((slide, i) => (
         <div
           key={i}
-          className={`absolute inset-0 bg-black flex items-center justify-center transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 bg-neutral-900 flex items-center justify-center transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
         >
           <img
             src={slide.src}
