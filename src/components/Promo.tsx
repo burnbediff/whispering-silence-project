@@ -5,10 +5,12 @@ const SLIDES = [
   {
     src: "https://i.postimg.cc/nhrJpdQH/dx4-ru-collage-1920x1080-(1).png",
     alt: "Стикерпак — слайд 1",
+    fit: "object-contain",
   },
   {
     src: "https://i.postimg.cc/YqNRnkn2/05313e2f-c052-408b-8164-d9fef8740ecc.png",
     alt: "Стикерпак — слайд 2",
+    fit: "object-cover",
   },
 ];
 
@@ -25,7 +27,7 @@ export default function Promo() {
           key={i}
           src={slide.src}
           alt={slide.alt}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 w-full h-full ${slide.fit} transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
         />
       ))}
 
