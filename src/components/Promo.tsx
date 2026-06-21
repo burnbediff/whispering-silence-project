@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon";
 
 const SLIDES = [
   {
-    src: "https://i.postimg.cc/rw8J7b3z/a3350f59-e4c4-4675-bb10-099ae21bcbda.png",
+    src: "https://i.postimg.cc/nhrJpdQH/dx4-ru-collage-1920x1080-(1).png",
     alt: "Стикерпак — слайд 1",
   },
   {
