@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 const SLIDES = [
@@ -29,6 +29,13 @@ export default function Promo() {
 
   const prev = () => setCurrent((c) => (c === 0 ? SLIDES.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === SLIDES.length - 1 ? 0 : c + 1));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((c) => (c === SLIDES.length - 1 ? 0 : c + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black select-none">
