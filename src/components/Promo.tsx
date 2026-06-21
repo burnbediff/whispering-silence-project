@@ -10,7 +10,7 @@ const SLIDES = [
   {
     src: "https://i.postimg.cc/9MhxLMdf/dx4-ru-collage-1920x1080-(4).png",
     alt: "Стикерпак — слайд 2",
-    fit: "object-cover",
+    fit: "object-contain",
   },
   {
     src: "https://i.postimg.cc/d169n9tQ/dx4-ru-collage-1920x1080-(7).png",
