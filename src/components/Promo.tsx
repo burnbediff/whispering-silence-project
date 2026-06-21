@@ -12,6 +12,11 @@ const SLIDES = [
     alt: "Стикерпак — слайд 2",
     fit: "object-cover",
   },
+  {
+    src: "https://i.postimg.cc/d169n9tQ/dx4-ru-collage-1920x1080-(7).png",
+    alt: "Стикерпак — слайд 3",
+    fit: "object-contain",
+  },
 ];
 
 export default function Promo() {
