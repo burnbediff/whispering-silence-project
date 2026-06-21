@@ -8,7 +8,7 @@ const SLIDES = [
     fit: "object-contain",
   },
   {
-    src: "https://i.postimg.cc/YqNRnkn2/05313e2f-c052-408b-8164-d9fef8740ecc.png",
+    src: "https://i.postimg.cc/9MhxLMdf/dx4-ru-collage-1920x1080-(4).png",
     alt: "Стикерпак — слайд 2",
     fit: "object-cover",
   },
