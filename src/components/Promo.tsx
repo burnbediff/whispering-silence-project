@@ -41,7 +41,7 @@ export default function Promo() {
             src={slide.src}
             alt={slide.alt}
             className={`w-full h-full ${slide.fit}`}
-            style={{ transform: "scale(1.04)" }}
+
           />
         </div>
       ))}
