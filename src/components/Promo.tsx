@@ -42,15 +42,16 @@ export default function Promo() {
       {SLIDES.map((slide, i) => (
         <div
           key={i}
-          className={`absolute inset-0 bg-black transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
-        >
-          <img
-            src={slide.src}
-            alt={slide.alt}
-            className={`w-full h-full ${slide.fit}`}
-
-          />
-        </div>
+          className={`absolute inset-0 transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+          style={{
+            backgroundImage: `url(${slide.src})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundColor: "#000",
+          }}
+          aria-label={slide.alt}
+        />
       ))}
 
       <button
