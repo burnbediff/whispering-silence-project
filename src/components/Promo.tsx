@@ -1,38 +1,59 @@
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { useState } from "react";
+import Icon from "@/components/ui/icon";
+
+const SLIDES = [
+  {
+    src: "https://i.postimg.cc/rw8J7b3z/a3350f59-e4c4-4675-bb10-099ae21bcbda.png",
+    alt: "Стикерпак — слайд 1",
+  },
+  {
+    src: "https://i.postimg.cc/YqNRnkn2/05313e2f-c052-408b-8164-d9fef8740ecc.png",
+    alt: "Стикерпак — слайд 2",
+  },
+];
 
 export default function Promo() {
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-10vh", "10vh"]);
+  const [current, setCurrent] = useState(0);
+
+  const prev = () => setCurrent((c) => (c === 0 ? SLIDES.length - 1 : c - 1));
+  const next = () => setCurrent((c) => (c === SLIDES.length - 1 ? 0 : c + 1));
 
   return (
-    <div
-      ref={container}
-      className="relative flex items-center justify-center h-screen overflow-hidden"
-      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-    >
-      <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
-        <motion.div style={{ y }} className="relative w-full h-full">
-          <img
-            src="https://cdn.poehali.dev/projects/14864d04-7967-4329-83a1-be36c986c09f/files/71f62728-bc90-4203-bfa4-9d4e214e4e9d.jpg"
-            alt="Телеграм-стикеры"
-            className="w-full h-full object-cover"
+    <div className="relative w-full h-screen overflow-hidden bg-black select-none">
+      {SLIDES.map((slide, i) => (
+        <img
+          key={i}
+          src={slide.src}
+          alt={slide.alt}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+        />
+      ))}
+
+      <button
+        onClick={prev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white p-3 transition-colors"
+        aria-label="Предыдущий"
+      >
+        <Icon name="ChevronLeft" size={28} />
+      </button>
+
+      <button
+        onClick={next}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white p-3 transition-colors"
+        aria-label="Следующий"
+      >
+        <Icon name="ChevronRight" size={28} />
+      </button>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-2 h-2 rounded-full transition-colors ${i === current ? "bg-white" : "bg-white/40"}`}
           />
-        </motion.div>
+        ))}
       </div>
-
-      <h3 className="absolute top-12 right-6 text-white uppercase z-10 text-sm md:text-base lg:text-lg">
-        Свой стикерпак
-      </h3>
-
-      <p className="absolute bottom-12 right-6 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-5xl z-10">
-        Превратите своё фото в яркий набор телеграм-стикеров с эмоциями. Уникальный персонаж,
-        который оживит ваши переписки и станет вашей фишкой.
-      </p>
     </div>
   );
 }
