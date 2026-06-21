@@ -31,14 +31,18 @@ export default function Promo() {
   const next = () => setCurrent((c) => (c === SLIDES.length - 1 ? 0 : c + 1));
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-neutral-900 select-none">
+    <div className="relative w-full h-screen overflow-hidden bg-black select-none">
       {SLIDES.map((slide, i) => (
-        <img
+        <div
           key={i}
-          src={slide.src}
-          alt={slide.alt}
-          className={`absolute inset-0 w-full h-full ${slide.fit} transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
-        />
+          className={`absolute inset-0 bg-black transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+        >
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            className={`w-full h-full ${slide.fit}`}
+          />
+        </div>
       ))}
 
       <button
