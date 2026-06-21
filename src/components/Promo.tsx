@@ -21,7 +21,7 @@ export default function Promo() {
   const next = () => setCurrent((c) => (c === SLIDES.length - 1 ? 0 : c + 1));
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black select-none">
+    <div className="relative w-full h-screen overflow-hidden bg-neutral-900 select-none">
       {SLIDES.map((slide, i) => (
         <img
           key={i}
