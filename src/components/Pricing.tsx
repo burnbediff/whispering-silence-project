@@ -8,7 +8,7 @@ export default function Pricing() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="border border-white p-8 flex flex-col gap-4 relative">
+          <div className="p-8 flex flex-col gap-4 relative" style={{ border: "1px solid transparent", backgroundImage: "linear-gradient(#171717, #171717), linear-gradient(135deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #8b00ff)", backgroundOrigin: "border-box", backgroundClip: "padding-box, border-box" }}>
             <p className="uppercase text-xs tracking-wide text-[#1A9494]">Популярное</p>
             <h3 className="text-2xl font-bold text-white">Телеграм-стикеры</h3>
             <p className="text-neutral-400 text-sm leading-relaxed flex-1">
@@ -51,7 +51,7 @@ export default function Pricing() {
               Профессиональные портреты в любом стиле — деловые, креативные, атмосферные. Без студии и фотографа, результат за несколько минут.
             </p>
             <div className="border-t border-neutral-700 pt-4 flex items-end gap-2">
-              <span className="text-2xl font-bold text-[#1A9494]">—</span>
+              <span className="text-2xl font-bold text-[#1A9494]">———</span>
             </div>
             <span className="bg-neutral-700 text-neutral-400 px-6 py-3 text-sm uppercase tracking-wide text-center cursor-default">
               Скоро
