@@ -5,22 +5,17 @@ const SLIDES = [
   {
     src: "https://i.postimg.cc/mrvxBBQ4/dx4-ru-collage-1920x1080-(5).png",
     alt: "Стикерпак — слайд 1",
-    fit: "object-contain",
+    text: "Забудьте о скучных смайлах! В одном моём стикер-паке вы найдете целую гамму чувств: от искренней радости и саркастичной ухмылки до уморительного стыда и бурного восторга. Теперь ваше сообщение заговорит ярче любых слов.",
   },
   {
     src: "https://i.postimg.cc/9MhxLMdf/dx4-ru-collage-1920x1080-(4).png",
     alt: "Стикерпак — слайд 2",
-    fit: "object-contain",
-  },
-  {
-    src: "https://i.postimg.cc/d169n9tQ/dx4-ru-collage-1920x1080-(7).png",
-    alt: "Стикерпак — слайд 3",
-    fit: "object-contain",
+    text: "Каждая линия и каждая тень в этих стикерах — результат кропотливого ручного труда и моего дотошного внимания к деталям. Я прорабатываю текстуры и мимику так, чтобы персонажи выглядели живыми и осязаемыми.",
   },
   {
     src: "https://i.postimg.cc/1X4DBhjK/dx4-ru-collage-1920x1080-(6).png",
-    alt: "Стикерпак — слайд 4",
-    fit: "object-contain",
+    alt: "Стикерпак — слайд 3",
+    text: "Я не просто делаю стикеры, я собираю для вас инструмент общения: вы сами определяете нужный набор эмоций и их количество для вашего пака. Это значит, что в вашем арсенале будут только те реакции, которые действительно нужны, и ни одной лишней.",
   },
 ];
 
@@ -42,13 +37,22 @@ export default function Promo() {
       {SLIDES.map((slide, i) => (
         <div
           key={i}
-          className={`absolute inset-0 bg-neutral-900 flex items-center justify-center transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 bg-neutral-900 flex items-center transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
         >
-          <img
-            src={slide.src}
-            alt={slide.alt}
-            className="w-full h-full object-contain"
-          />
+          <div className="flex flex-col md:flex-row w-full h-full">
+            <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center">
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center px-8 md:px-12">
+              <p className="text-white text-lg md:text-xl leading-relaxed text-center md:text-left">
+                {slide.text}
+              </p>
+            </div>
+          </div>
         </div>
       ))}
 
