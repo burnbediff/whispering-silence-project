@@ -58,6 +58,7 @@ export default function Footer() {
               <div className="flex flex-col items-end gap-1">
                 <p className="text-white text-sm sm:text-base">{new Date().getFullYear()} bediff</p>
                 <a href="/oferta" className="text-neutral-400 hover:text-white transition-colors text-xs sm:text-sm">Публичная оферта</a>
+                <a href="/privacy" className="text-neutral-400 hover:text-white transition-colors text-xs sm:text-sm">Политика конфиденциальности</a>
               </div>
             </div>
           </div>

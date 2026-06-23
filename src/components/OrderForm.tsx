@@ -18,6 +18,7 @@ export default function OrderForm() {
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [photoError, setPhotoError] = useState<string | null>(null);
   const [agreed, setAgreed] = useState(false);
+  const [agreedPrivacy, setAgreedPrivacy] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -179,7 +180,7 @@ export default function OrderForm() {
               )}
             </div>
 
-            <label className="flex items-start gap-3 cursor-pointer group">
+            <label className="flex items-start gap-3 cursor-pointer">
               <input
                 type="checkbox"
                 checked={agreed}
@@ -195,13 +196,28 @@ export default function OrderForm() {
               </span>
             </label>
 
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={agreedPrivacy}
+                onChange={e => setAgreedPrivacy(e.target.checked)}
+                className="mt-0.5 w-4 h-4 shrink-0 accent-black cursor-pointer"
+              />
+              <span className="text-sm text-neutral-600 leading-snug">
+                Я даю{" "}
+                <a href="/privacy" target="_blank" className="underline text-neutral-900 hover:text-neutral-500 transition-colors">
+                  согласие на обработку персональных данных
+                </a>
+              </span>
+            </label>
+
             {status === "error" && (
               <p className="text-red-500 text-sm">Что-то пошло не так. Попробуйте ещё раз.</p>
             )}
 
             <button
               type="submit"
-              disabled={status === "loading" || !agreed}
+              disabled={status === "loading" || !agreed || !agreedPrivacy}
               className="bg-black text-white px-6 py-4 text-sm uppercase tracking-wide transition-all duration-300 hover:bg-neutral-800 disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {status === "loading" ? (
