@@ -47,10 +47,13 @@ export default function Promo() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center px-8 md:px-12">
-              <p className="text-white text-lg md:text-xl leading-relaxed text-center md:text-left">
-                {slide.text}
-              </p>
+            <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center px-8 md:px-16">
+              <div className="max-w-md">
+                <div className="w-10 h-px bg-[#1A9494] mb-6" />
+                <p className="text-neutral-200 text-base md:text-lg leading-loose tracking-wide text-center md:text-left">
+                  {slide.text}
+                </p>
+              </div>
             </div>
           </div>
         </div>
