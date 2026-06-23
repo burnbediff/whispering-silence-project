@@ -5,16 +5,19 @@ const SLIDES = [
   {
     src: "https://cdn.poehali.dev/projects/14864d04-7967-4329-83a1-be36c986c09f/bucket/12b0bed6-140f-4d24-a054-9821f6b4906b.png",
     alt: "Стикерпак — слайд 1",
+    title: "Палитра эмоций",
     text: "Забудьте о скучных смайлах! В одном моём стикер-паке вы найдете целую гамму чувств: от искренней радости и саркастичной ухмылки до уморительного стыда и бурного восторга. Теперь ваше сообщение заговорит ярче любых слов.",
   },
   {
     src: "https://cdn.poehali.dev/projects/14864d04-7967-4329-83a1-be36c986c09f/bucket/49c9bb71-35b9-4890-865d-a3486f59111d.png",
     alt: "Стикерпак — слайд 2",
+    title: "Внимательность к деталям",
     text: "Каждая линия и каждая тень в этих стикерах — результат кропотливого ручного труда и моего дотошного внимания к деталям. Я прорабатываю текстуры и мимику так, чтобы персонажи выглядели живыми и осязаемыми.",
   },
   {
     src: "https://cdn.poehali.dev/projects/14864d04-7967-4329-83a1-be36c986c09f/bucket/8d3cfe16-9aeb-4402-9a1d-bc9de3c263d3.png",
     alt: "Стикерпак — слайд 3",
+    title: "Только нужное",
     text: "Я не просто делаю стикеры, я собираю для вас инструмент общения: вы сами определяете нужный набор эмоций и их количество для вашего пака. Это значит, что в вашем арсенале будут только те реакции, которые действительно нужны, и ни одной лишней.",
   },
 ];
@@ -50,7 +53,10 @@ export default function Promo() {
             <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center px-8 md:px-16">
               <div className="max-w-md">
                 <div className="w-10 h-px bg-[#1A9494] mb-6" />
-                <p className="text-neutral-200 text-base md:text-lg leading-loose tracking-wide text-center md:text-left">
+                <h2 className="text-white text-2xl md:text-3xl font-bold tracking-tight mb-4 text-center md:text-left">
+                  {slide.title}
+                </h2>
+                <p className="text-neutral-400 text-base md:text-lg leading-loose tracking-wide text-center md:text-left">
                   {slide.text}
                 </p>
               </div>
