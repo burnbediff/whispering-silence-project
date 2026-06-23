@@ -8,14 +8,14 @@ export default function Pricing() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="border border-neutral-700 p-8 flex flex-col gap-4 hover:border-white transition-colors duration-300">
-            <p className="uppercase text-xs tracking-wide text-neutral-500">Услуга</p>
+          <div className="border border-white p-8 flex flex-col gap-4 relative">
+            <p className="uppercase text-xs tracking-wide text-[#1A9494]">Популярное</p>
             <h3 className="text-2xl font-bold text-white">Телеграм-стикеры</h3>
             <p className="text-neutral-400 text-sm leading-relaxed flex-1">
               Загрузите своё фото — получите уникальный стикерпак с вашим персонажем и разными эмоциями. Готово к публикации в Telegram.
             </p>
             <div className="border-t border-neutral-700 pt-4 flex items-end gap-2">
-              <span className="text-5xl font-bold text-white">150</span>
+              <span className="text-5xl font-bold text-white">149</span>
               <span className="text-neutral-400 mb-2">₽</span>
             </div>
             <a
@@ -33,7 +33,7 @@ export default function Pricing() {
               Загрузите своё фото — получите набор уникальных эмодзи с вашим персонажем. Используйте их на своих трансляциях и в чатах, чтобы выразить эмоции по-настоящему узнаваемо.
             </p>
             <div className="border-t border-neutral-700 pt-4 flex items-end gap-2">
-              <span className="text-5xl font-bold text-white">150</span>
+              <span className="text-5xl font-bold text-white">99</span>
               <span className="text-neutral-400 mb-2">₽</span>
             </div>
             <a
@@ -44,14 +44,14 @@ export default function Pricing() {
             </a>
           </div>
 
-          <div className="border border-white p-8 flex flex-col gap-4 relative">
-            <p className="uppercase text-xs tracking-wide text-neutral-500">Популярное</p>
+          <div className="border border-neutral-700 p-8 flex flex-col gap-4 hover:border-white transition-colors duration-300">
+            <p className="uppercase text-xs tracking-wide text-neutral-500">Услуга</p>
             <h3 className="text-2xl font-bold text-white">AI Фотосессия</h3>
             <p className="text-neutral-400 text-sm leading-relaxed flex-1">
               Профессиональные портреты в любом стиле — деловые, креативные, атмосферные. Без студии и фотографа, результат за несколько минут.
             </p>
             <div className="border-t border-neutral-700 pt-4 flex items-end gap-2">
-              <span className="text-5xl font-bold text-white">—</span>
+              <span className="text-2xl font-bold text-[#1A9494]">—</span>
             </div>
             <span className="bg-neutral-700 text-neutral-400 px-6 py-3 text-sm uppercase tracking-wide text-center cursor-default">
               Скоро
