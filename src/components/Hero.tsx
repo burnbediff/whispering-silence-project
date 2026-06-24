@@ -26,7 +26,7 @@ export default function Hero() {
       </motion.div>
 
       <div className="relative z-10 text-center text-white">
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-6 text-[#126f6f] drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" style={{ fontFamily: "'Cormorant Garamond', serif", WebkitTextStroke: 'unset' }}>
+        <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight mb-6 text-[#126f6f] drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" style={{ fontFamily: "'Cormorant Garamond', serif", WebkitTextStroke: 'unset' }}>
           Стикеры и эмодзи
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto px-6 opacity-90">
