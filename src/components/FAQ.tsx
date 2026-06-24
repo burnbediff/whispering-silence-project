@@ -32,7 +32,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-neutral-900 px-6 py-20">
+    <section id="faq" className="bg-neutral-900 px-6 pt-20 pb-10">
       <div className="max-w-4xl mx-auto">
         <h3 className="uppercase text-sm tracking-wide text-neutral-300 mb-3">❓ Часто задаваемые вопросы</h3>
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 leading-tight">FAQ</h2>
@@ -60,9 +60,12 @@ export default function FAQ() {
                 />
               </button>
               {open === i && (
-                <p className="px-6 pb-6 text-base text-neutral-300 leading-relaxed pl-[3.75rem]">
-                  {item.answer}
-                </p>
+                <div className="pl-[3.75rem] pr-6 pb-6">
+                  <div className="w-16 h-px bg-[#1A9494] mb-4" />
+                  <p className="text-base text-neutral-300 leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
               )}
             </div>
           ))}

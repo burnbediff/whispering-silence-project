@@ -28,7 +28,7 @@ export default function HowItWorks() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="about" className="bg-neutral-900 px-6 py-20">
+    <section id="about" className="bg-neutral-900 px-6 pt-10 pb-20">
       <div className="max-w-4xl mx-auto">
         <h3 className="uppercase text-sm tracking-wide text-neutral-300 mb-3">⚙️ Как это работает?</h3>
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 leading-tight">Пошагово</h2>
