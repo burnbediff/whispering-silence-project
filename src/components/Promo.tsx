@@ -47,12 +47,12 @@ export default function Promo() {
               <img
                 src={slide.src}
                 alt={slide.alt}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain mix-blend-multiply"
               />
               <div className="absolute inset-0 pointer-events-none" style={{
                 background: `
                   linear-gradient(to right, #171717 0%, transparent 17%, transparent 83%, #171717 100%),
-                  linear-gradient(to bottom, #171717 0%, transparent 25%, transparent 75%, #171717 100%)
+                  linear-gradient(to bottom, #171717 0%, transparent 17%, transparent 83%, #171717 100%)
                 `
               }} />
             </div>
