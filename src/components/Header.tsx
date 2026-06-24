@@ -14,7 +14,7 @@ export default function Header({ className }: HeaderProps) {
           />
           <span className="text-[#1A9494] text-xl uppercase tracking-wide font-semibold">bediff</span>
         </a>
-        <nav className="flex flex-col gap-2 md:flex-row md:gap-8">
+        <nav className="flex flex-col gap-2 items-end md:flex-row md:gap-8 md:items-center self-end md:self-auto">
           <a
             href="#pricing"
             className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-sm font-semibold"
