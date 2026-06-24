@@ -10,26 +10,26 @@ export default function Header({ className }: HeaderProps) {
           <img
             src="https://cdn.poehali.dev/projects/14864d04-7967-4329-83a1-be36c986c09f/files/favicon-1781892824246.png"
             alt="bediff logo"
-            className="w-6 h-6 object-contain"
+            className="w-8 h-8 object-contain"
           />
-          <span className="text-[#1A9494] text-base uppercase tracking-wide font-semibold">bediff</span>
+          <span className="text-[#1A9494] text-xl uppercase tracking-wide font-semibold">bediff</span>
         </a>
         <nav className="flex flex-col gap-2 md:flex-row md:gap-8">
           <a
             href="#pricing"
-            className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-base font-semibold"
+            className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-sm font-semibold"
           >
             Заказать
           </a>
           <a
             href="#faq"
-            className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-base font-semibold"
+            className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-sm font-semibold"
           >
             FAQ
           </a>
           <a
             href="#about"
-            className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-base font-semibold"
+            className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-sm font-semibold"
           >
             Как это работает
           </a>
