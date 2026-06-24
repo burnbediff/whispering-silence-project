@@ -4,6 +4,7 @@ import Promo from "@/components/Promo";
 import Pricing from "@/components/Pricing";
 import OrderForm from "@/components/OrderForm";
 import FAQ from "@/components/FAQ";
+import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -15,6 +16,7 @@ const Index = () => {
       <Pricing />
       <OrderForm />
       <FAQ />
+      <HowItWorks />
       <Footer />
     </main>
   );
