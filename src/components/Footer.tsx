@@ -31,6 +31,7 @@ export default function Footer() {
                 <p className="text-white text-xs sm:text-sm">{new Date().getFullYear()} bediff</p>
                 <a href="/oferta" className="text-neutral-400 hover:text-white transition-colors text-xs">Публичная оферта</a>
                 <a href="/privacy" className="text-neutral-400 hover:text-white transition-colors text-xs">Политика конфиденциальности</a>
+                <a href="/cookies" className="text-neutral-400 hover:text-white transition-colors text-xs">Соглашение о cookie</a>
               </div>
             </div>
           </div>

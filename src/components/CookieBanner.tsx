@@ -14,7 +14,7 @@ export default function CookieBanner() {
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-xl bg-neutral-900/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl px-5 py-3 flex items-center justify-between gap-4">
       <p className="text-xs text-neutral-500 leading-relaxed">
         Используем cookie.{" "}
-        <a href="/privacy" className="underline hover:text-neutral-300 transition-colors">
+        <a href="/cookies" className="underline hover:text-neutral-300 transition-colors">
           Подробнее
         </a>
       </p>
