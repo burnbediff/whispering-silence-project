@@ -4,7 +4,7 @@ interface HeaderProps {
 
 export default function Header({ className }: HeaderProps) {
   return (
-    <header className={`absolute top-0 left-0 right-0 z-10 p-6 ${className ?? ""}`}>
+    <header className={`absolute top-0 left-0 right-0 z-10 px-6 py-10 ${className ?? ""}`}>
       <div className="flex flex-row justify-between items-start md:items-center gap-4">
         <a href="#" className="flex items-center gap-2">
           <img
