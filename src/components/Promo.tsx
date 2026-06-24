@@ -50,13 +50,13 @@ export default function Promo() {
                 className="w-full h-full object-contain"
               />
               {/* fade right */}
-              <div className="absolute inset-y-0 right-0 hidden md:block" style={{ width: "20px", background: "linear-gradient(to right, transparent, #171717)" }} />
+              <div className="absolute inset-y-0 right-0" style={{ width: "60px", background: "linear-gradient(to right, transparent, #171717)" }} />
               {/* fade left */}
-              <div className="absolute inset-y-0 left-0 hidden md:block" style={{ width: "20px", background: "linear-gradient(to left, transparent, #171717)" }} />
+              <div className="absolute inset-y-0 left-0" style={{ width: "60px", background: "linear-gradient(to left, transparent, #171717)" }} />
               {/* fade top */}
-              <div className="absolute inset-x-0 top-0" style={{ height: "20px", background: "linear-gradient(to top, transparent, #171717)" }} />
+              <div className="absolute inset-x-0 top-0" style={{ height: "60px", background: "linear-gradient(to top, transparent, #171717)" }} />
               {/* fade bottom */}
-              <div className="absolute inset-x-0 bottom-0" style={{ height: "20px", background: "linear-gradient(to bottom, transparent, #171717)" }} />
+              <div className="absolute inset-x-0 bottom-0" style={{ height: "60px", background: "linear-gradient(to bottom, transparent, #171717)" }} />
             </div>
             <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center px-8 md:px-16">
               <div className="max-w-md">
