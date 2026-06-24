@@ -26,8 +26,8 @@ export default function Hero() {
       </motion.div>
 
       <div className="relative z-10 text-center text-white">
-        <h1 className="text-7xl md:text-8xl lg:text-9xl font-normal tracking-tight mb-6 text-[#126f6f] drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-          Стикеры и Эмодзи
+        <h1 className="text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight mb-6 text-[#126f6f] drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+          Стикеры и эмодзи
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto px-6 opacity-90">
           Превращаем ваши фото в уникальные стикеры и эмодзи с характером, прорабатывая каждую деталь.
