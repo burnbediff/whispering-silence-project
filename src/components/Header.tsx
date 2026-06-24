@@ -4,7 +4,7 @@ interface HeaderProps {
 
 export default function Header({ className }: HeaderProps) {
   return (
-    <header className={`absolute top-0 left-0 right-0 z-10 px-6 py-10 ${className ?? ""}`}>
+    <header className={`absolute top-0 left-0 right-0 z-10 p-6 ${className ?? ""}`}>
       <div className="flex flex-row justify-between items-start md:items-center gap-4">
         <a href="#" className="flex items-center gap-2">
           <img
@@ -14,7 +14,7 @@ export default function Header({ className }: HeaderProps) {
           />
           <span className="text-[#1A9494] text-xl uppercase tracking-wide font-semibold">bediff</span>
         </a>
-        <nav className="flex flex-col gap-2 items-end md:flex-row md:gap-8 md:items-center self-end md:self-auto">
+        <nav className="flex flex-col gap-2 items-end md:flex-row md:gap-8 md:items-center self-end md:self-auto mt-4 md:mt-0">
           <a
             href="#pricing"
             className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-sm font-semibold"
