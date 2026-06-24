@@ -15,6 +15,12 @@ export default function Header({ className }: HeaderProps) {
             Как это работает
           </a>
           <a
+            href="#faq"
+            className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-base font-semibold"
+          >
+            FAQ
+          </a>
+          <a
             href="#pricing"
             className="text-[#1A9494] hover:text-[#2ABFBF] transition-colors duration-300 uppercase text-base font-semibold"
           >
