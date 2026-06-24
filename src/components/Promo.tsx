@@ -47,7 +47,7 @@ export default function Promo() {
               <img
                 src={slide.src}
                 alt={slide.alt}
-                className="w-full h-full object-contain mix-blend-multiply"
+                className="w-full h-full object-contain"
               />
               <div className="absolute inset-0 pointer-events-none" style={{
                 background: `
