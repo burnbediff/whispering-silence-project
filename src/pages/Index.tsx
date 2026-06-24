@@ -6,6 +6,7 @@ import OrderForm from "@/components/OrderForm";
 import FAQ from "@/components/FAQ";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <OrderForm />
       <FAQ />
       <Footer />
+      <CookieBanner />
     </main>
   );
 };
