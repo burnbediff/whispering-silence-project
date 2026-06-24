@@ -34,7 +34,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="bg-neutral-900 px-6 py-20">
       <div className="max-w-4xl mx-auto">
-        <h3 className="uppercase text-sm tracking-wide text-neutral-500 mb-3">❓ Часто задаваемые вопросы</h3>
+        <h3 className="uppercase text-sm tracking-wide text-neutral-300 mb-3">❓ Часто задаваемые вопросы</h3>
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 leading-tight">FAQ</h2>
 
         <div className="flex flex-col gap-4">
@@ -49,7 +49,7 @@ export default function FAQ() {
               >
                 <span className="flex items-start gap-3">
                   <span className="text-xl leading-none mt-0.5">{item.emoji}</span>
-                  <span className="text-base font-semibold text-white group-hover:text-neutral-300 transition-colors">
+                  <span className="text-lg font-semibold text-white group-hover:text-neutral-300 transition-colors">
                     {i + 1}. {item.question}
                   </span>
                 </span>
@@ -60,7 +60,7 @@ export default function FAQ() {
                 />
               </button>
               {open === i && (
-                <p className="px-6 pb-6 text-sm text-neutral-400 leading-relaxed pl-[3.75rem]">
+                <p className="px-6 pb-6 text-base text-neutral-300 leading-relaxed pl-[3.75rem]">
                   {item.answer}
                 </p>
               )}
