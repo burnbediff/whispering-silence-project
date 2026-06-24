@@ -14,9 +14,11 @@ export default function Pricing() {
             <p className="text-neutral-400 text-sm leading-relaxed flex-1">
               Загрузите своё фото — получите уникальный стикерпак с вашим персонажем и разными эмоциями. Готово к публикации в Telegram.
             </p>
-            <div className="border-t border-neutral-700 pt-4 flex items-end gap-2">
+            <div className="border-t border-neutral-700 pt-4 flex items-end gap-3">
               <span className="text-5xl font-bold text-white">149</span>
               <span className="text-neutral-400 mb-2">₽</span>
+              <span className="text-neutral-500 line-through mb-2 text-lg">249₽</span>
+              <span className="mb-2 text-sm font-semibold text-green-400">−40%</span>
             </div>
             <a
               href="#order"
@@ -32,9 +34,11 @@ export default function Pricing() {
             <p className="text-neutral-400 text-sm leading-relaxed flex-1">
               Загрузите своё фото — получите набор уникальных эмодзи с вашим персонажем. Используйте их на своих трансляциях и в чатах, чтобы выразить эмоции по-настоящему узнаваемо.
             </p>
-            <div className="border-t border-neutral-700 pt-4 flex items-end gap-2">
+            <div className="border-t border-neutral-700 pt-4 flex items-end gap-3">
               <span className="text-5xl font-bold text-white">99</span>
               <span className="text-neutral-400 mb-2">₽</span>
+              <span className="text-neutral-500 line-through mb-2 text-lg">199₽</span>
+              <span className="mb-2 text-sm font-semibold text-green-400">−50%</span>
             </div>
             <a
               href="#order"
