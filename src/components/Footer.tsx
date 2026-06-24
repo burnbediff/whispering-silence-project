@@ -11,16 +11,22 @@ export default function Footer() {
               <div className="flex flex-col gap-1 sm:gap-2">
                 <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Услуги</h3>
                 <a
-                  href="#photo"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Нейро-фотосессия
-                </a>
-                <a
-                  href="#stickers"
+                  href="#pricing"
                   className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
                 >
                   Телеграм-стикеры
+                </a>
+                <a
+                  href="#pricing"
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
+                >
+                  Эмодзи
+                </a>
+                <a
+                  href="#pricing"
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
+                >
+                  AI-фотосессия
                 </a>
                 <a
                   href="#order"
