@@ -4,15 +4,15 @@ import Icon from "@/components/ui/icon";
 const BACKEND_URL = "https://functions.poehali.dev/f1734664-2817-4ae0-b55d-063881924103";
 
 const SERVICE_OPTIONS = [
-  "AI Фотосессия",
-  "Телеграм-стикеры",
-  "AI Фотосессия + стикеры",
+  { label: "Телеграм-стикеры", disabled: false },
+  { label: "Эмодзи", disabled: false },
+  { label: "AI Фотосессия — скоро", disabled: true },
 ];
 
 export default function OrderForm() {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [service, setService] = useState(SERVICE_OPTIONS[0]);
+  const [service, setService] = useState(SERVICE_OPTIONS[0].label);
   const [wish, setWish] = useState("");
   const [photo, setPhoto] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
@@ -128,7 +128,7 @@ export default function OrderForm() {
                 className="border border-neutral-200 px-4 py-3 text-sm outline-none focus:border-neutral-900 transition-colors bg-neutral-50 cursor-pointer"
               >
                 {SERVICE_OPTIONS.map(o => (
-                  <option key={o} value={o}>{o}</option>
+                  <option key={o.label} value={o.label} disabled={o.disabled}>{o.label}</option>
                 ))}
               </select>
             </div>
