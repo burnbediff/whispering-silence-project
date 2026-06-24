@@ -11,16 +11,16 @@ export default function CookieBanner() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-neutral-800 border-t border-neutral-700 px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-      <p className="text-sm text-neutral-300 leading-relaxed">
-        Мы используем файлы cookie для улучшения работы сайта. Продолжая, вы соглашаетесь с нашей{" "}
-        <a href="/privacy" className="underline text-white hover:text-neutral-300 transition-colors">
-          политикой конфиденциальности
-        </a>.
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-xl bg-neutral-900/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl px-5 py-3 flex items-center justify-between gap-4">
+      <p className="text-xs text-neutral-500 leading-relaxed">
+        Используем cookie.{" "}
+        <a href="/privacy" className="underline hover:text-neutral-300 transition-colors">
+          Подробнее
+        </a>
       </p>
       <button
         onClick={accept}
-        className="shrink-0 bg-white text-black text-sm uppercase tracking-wide px-5 py-2 hover:bg-neutral-200 transition-colors"
+        className="shrink-0 bg-neutral-800 text-[#1A9494] text-xs uppercase tracking-wide px-4 py-1.5 rounded-full border border-neutral-700 hover:border-[#1A9494] transition-colors"
       >
         Принять
       </button>
