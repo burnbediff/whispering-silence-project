@@ -28,32 +28,35 @@ export default function HowItWorks() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="about" className="bg-white px-6 py-20">
-      <div className="max-w-xl mx-auto">
+    <section id="about" className="bg-neutral-900 px-6 py-20">
+      <div className="max-w-4xl mx-auto">
         <h3 className="uppercase text-sm tracking-wide text-neutral-500 mb-3">⚙️ Как это работает?</h3>
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-10 leading-tight">Пошагово</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 leading-tight">Пошагово</h2>
 
-        <div className="flex flex-col divide-y divide-neutral-200 border-t border-b border-neutral-200">
+        <div className="flex flex-col gap-4">
           {STEPS.map((step, i) => (
-            <div key={i}>
+            <div
+              key={i}
+              className="border border-neutral-700 hover:border-neutral-500 transition-colors duration-300"
+            >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between gap-4 py-5 text-left group"
+                className="w-full flex items-center justify-between gap-4 p-6 text-left group"
               >
                 <span className="flex items-center gap-4">
-                  <span className="text-xs font-mono text-neutral-400 w-6 shrink-0">{step.num}</span>
-                  <span className="text-base font-semibold text-neutral-900 group-hover:text-neutral-600 transition-colors">
+                  <span className="text-xs font-mono text-[#1A9494] shrink-0">{step.num}</span>
+                  <span className="text-base font-semibold text-white group-hover:text-neutral-300 transition-colors">
                     {step.title}
                   </span>
                 </span>
                 <Icon
                   name={open === i ? "ChevronUp" : "ChevronDown"}
                   size={20}
-                  className="shrink-0 text-neutral-400 transition-transform duration-200"
+                  className="shrink-0 text-neutral-500"
                 />
               </button>
               {open === i && (
-                <p className="pb-5 text-sm text-neutral-600 leading-relaxed pl-10">
+                <p className="px-6 pb-6 text-sm text-neutral-400 leading-relaxed pl-16">
                   {step.text}
                 </p>
               )}

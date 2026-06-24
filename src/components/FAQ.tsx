@@ -32,32 +32,35 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-neutral-50 px-6 py-20">
-      <div className="max-w-xl mx-auto">
+    <section id="faq" className="bg-neutral-900 px-6 py-20">
+      <div className="max-w-4xl mx-auto">
         <h3 className="uppercase text-sm tracking-wide text-neutral-500 mb-3">❓ Часто задаваемые вопросы</h3>
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-10 leading-tight">FAQ</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 leading-tight">FAQ</h2>
 
-        <div className="flex flex-col divide-y divide-neutral-200 border-t border-b border-neutral-200">
+        <div className="flex flex-col gap-4">
           {ITEMS.map((item, i) => (
-            <div key={i}>
+            <div
+              key={i}
+              className="border border-neutral-700 hover:border-neutral-500 transition-colors duration-300"
+            >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-start justify-between gap-4 py-5 text-left group"
+                className="w-full flex items-start justify-between gap-4 p-6 text-left group"
               >
                 <span className="flex items-start gap-3">
                   <span className="text-xl leading-none mt-0.5">{item.emoji}</span>
-                  <span className="text-base font-semibold text-neutral-900 group-hover:text-neutral-600 transition-colors">
+                  <span className="text-base font-semibold text-white group-hover:text-neutral-300 transition-colors">
                     {i + 1}. {item.question}
                   </span>
                 </span>
                 <Icon
                   name={open === i ? "ChevronUp" : "ChevronDown"}
                   size={20}
-                  className="shrink-0 text-neutral-400 mt-0.5 transition-transform duration-200"
+                  className="shrink-0 text-neutral-500 mt-0.5"
                 />
               </button>
               {open === i && (
-                <p className="pb-5 text-sm text-neutral-600 leading-relaxed pl-9">
+                <p className="px-6 pb-6 text-sm text-neutral-400 leading-relaxed pl-[3.75rem]">
                   {item.answer}
                 </p>
               )}

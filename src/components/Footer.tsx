@@ -55,6 +55,12 @@ export default function Footer() {
                 >
                   Вопросы
                 </a>
+                <a
+                  href="#about"
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
+                >
+                  Как это работает
+                </a>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
