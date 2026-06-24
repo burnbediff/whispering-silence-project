@@ -51,8 +51,8 @@ export default function Promo() {
               />
               <div className="absolute inset-0 pointer-events-none" style={{
                 background: `
-                  linear-gradient(to right, #171717 0%, transparent 8%, transparent 92%, #171717 100%),
-                  linear-gradient(to bottom, #171717 0%, transparent 8%, transparent 92%, #171717 100%)
+                  linear-gradient(to right, #171717 0%, transparent 4%, transparent 96%, #171717 100%),
+                  linear-gradient(to bottom, #171717 0%, transparent 4%, transparent 96%, #171717 100%)
                 `
               }} />
             </div>
