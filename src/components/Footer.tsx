@@ -1,76 +1,36 @@
 export default function Footer() {
   return (
     <div
-      className="relative h-[400px] sm:h-[600px] lg:h-[800px] max-h-[800px]"
+      className="relative h-[280px] sm:h-[360px] lg:h-[440px] max-h-[440px]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="relative h-[calc(100vh+400px)] sm:h-[calc(100vh+600px)] lg:h-[calc(100vh+800px)] -top-[100vh]">
-        <div className="h-[400px] sm:h-[600px] lg:h-[800px] sticky top-[calc(100vh-400px)] sm:top-[calc(100vh-600px)] lg:top-[calc(100vh-800px)]">
-          <div className="bg-neutral-900 py-4 sm:py-6 lg:py-8 px-4 sm:px-6 h-full w-full flex flex-col justify-between">
-            <div className="flex shrink-0 gap-8 sm:gap-12 lg:gap-20">
-              <div className="flex flex-col gap-1 sm:gap-2">
-                <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Услуги</h3>
-                <a
-                  href="#pricing"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Телеграм-стикеры
-                </a>
-                <a
-                  href="#pricing"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Эмодзи
-                </a>
-                <a
-                  href="#pricing"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  AI-фотосессия
-                </a>
-                <a
-                  href="#order"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Оставить заявку
-                </a>
+      <div className="relative h-[calc(100vh+280px)] sm:h-[calc(100vh+360px)] lg:h-[calc(100vh+440px)] -top-[100vh]">
+        <div className="h-[280px] sm:h-[360px] lg:h-[440px] sticky top-[calc(100vh-280px)] sm:top-[calc(100vh-360px)] lg:top-[calc(100vh-440px)]">
+          <div className="bg-neutral-900 py-4 sm:py-5 lg:py-6 px-4 sm:px-6 h-full w-full flex flex-col justify-between">
+            <div className="flex shrink-0 justify-end gap-8 sm:gap-12 lg:gap-20">
+              <div className="flex flex-col gap-1 items-end">
+                <h3 className="mb-1 uppercase text-neutral-400 text-xs">Услуги</h3>
+                <a href="#pricing" className="text-white hover:text-neutral-400 transition-colors duration-300 text-xs sm:text-sm">Телеграм-стикеры</a>
+                <a href="#pricing" className="text-white hover:text-neutral-400 transition-colors duration-300 text-xs sm:text-sm">Эмодзи</a>
+                <a href="#pricing" className="text-white hover:text-neutral-400 transition-colors duration-300 text-xs sm:text-sm">AI-фотосессия</a>
+                <a href="#order" className="text-white hover:text-neutral-400 transition-colors duration-300 text-xs sm:text-sm">Оставить заявку</a>
               </div>
-              <div className="flex flex-col gap-1 sm:gap-2">
-                <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Контакты</h3>
-                <a
-                  href="#telegram"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Telegram
-                </a>
-                <a
-                  href="#examples"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Примеры работ
-                </a>
-                <a
-                  href="#faq"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Вопросы
-                </a>
-                <a
-                  href="#about"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Как это работает
-                </a>
+              <div className="flex flex-col gap-1 items-end">
+                <h3 className="mb-1 uppercase text-neutral-400 text-xs">Контакты</h3>
+                <a href="#telegram" className="text-white hover:text-neutral-400 transition-colors duration-300 text-xs sm:text-sm">Telegram</a>
+                <a href="#examples" className="text-white hover:text-neutral-400 transition-colors duration-300 text-xs sm:text-sm">Примеры работ</a>
+                <a href="#faq" className="text-white hover:text-neutral-400 transition-colors duration-300 text-xs sm:text-sm">Вопросы</a>
+                <a href="#about" className="text-white hover:text-neutral-400 transition-colors duration-300 text-xs sm:text-sm">Как это работает</a>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
-              <h1 className="text-[18vw] sm:text-[16vw] lg:text-[14vw] leading-[0.8] mt-4 sm:mt-6 lg:mt-10 text-white font-bold tracking-tight">
+            <div className="flex flex-row justify-between items-end">
+              <h1 className="text-[18vw] sm:text-[16vw] lg:text-[14vw] leading-[0.8] text-white font-bold tracking-tight">
                 bediff
               </h1>
               <div className="flex flex-col items-end gap-1">
-                <p className="text-white text-sm sm:text-base">{new Date().getFullYear()} bediff</p>
-                <a href="/oferta" className="text-neutral-400 hover:text-white transition-colors text-xs sm:text-sm">Публичная оферта</a>
-                <a href="/privacy" className="text-neutral-400 hover:text-white transition-colors text-xs sm:text-sm">Политика конфиденциальности</a>
+                <p className="text-white text-xs sm:text-sm">{new Date().getFullYear()} bediff</p>
+                <a href="/oferta" className="text-neutral-400 hover:text-white transition-colors text-xs">Публичная оферта</a>
+                <a href="/privacy" className="text-neutral-400 hover:text-white transition-colors text-xs">Политика конфиденциальности</a>
               </div>
             </div>
           </div>
