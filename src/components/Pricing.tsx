@@ -1,5 +1,6 @@
 function selectService(service: string) {
   localStorage.setItem("selectedService", service);
+  window.dispatchEvent(new CustomEvent("serviceSelected", { detail: service }));
 }
 
 export default function Pricing() {

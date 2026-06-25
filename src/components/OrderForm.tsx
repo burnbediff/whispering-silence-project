@@ -27,16 +27,14 @@ export default function OrderForm() {
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const onHashChange = () => {
-      if (window.location.hash === "#order") {
-        const saved = localStorage.getItem("selectedService");
-        if (saved && SERVICE_OPTIONS.find(o => o.label === saved)) {
-          setService(saved);
-        }
+    const onServiceSelected = (e: Event) => {
+      const service = (e as CustomEvent<string>).detail;
+      if (service && SERVICE_OPTIONS.find(o => o.label === service)) {
+        setService(service);
       }
     };
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    window.addEventListener("serviceSelected", onServiceSelected);
+    return () => window.removeEventListener("serviceSelected", onServiceSelected);
   }, []);
 
   const handlePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
