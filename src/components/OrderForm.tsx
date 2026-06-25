@@ -66,11 +66,13 @@ export default function OrderForm() {
         body: JSON.stringify({ name, contact, service, wish, photo: photoBase64, photo_name: photoName }),
       });
       if (!res.ok) { setStatus("error"); return; }
+      const resData = await res.json();
+      const orderId = resData.order_id;
 
       const payRes = await fetch(PAYMENT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ service }),
+        body: JSON.stringify({ service, order_id: orderId }),
       });
       if (!payRes.ok) { setStatus("error"); return; }
 

@@ -1,14 +1,12 @@
 import json
 import os
 import base64
-import smtplib
 import boto3
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+import psycopg2
 
 
 def handler(event: dict, context) -> dict:
-    """Принимает заявку с лендинга и отправляет её на почту через Gmail."""
+    """Принимает заявку с лендинга, сохраняет в БД и загружает фото. Письмо отправляется после оплаты."""
 
     cors_headers = {
         'Access-Control-Allow-Origin': '*',
@@ -47,49 +45,20 @@ def handler(event: dict, context) -> dict:
         s3.put_object(Bucket='files', Key=key, Body=photo_data, ContentType='image/jpeg')
         photo_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{key}"
 
-    gmail_user = 'burntime.dota@gmail.com'
-    gmail_password = os.environ['GMAIL_APP_PASSWORD'].replace(' ', '')
-
-    if photo_url:
-        photo_html = f'''
-        <tr>
-          <td colspan="2" style="padding: 16px 0 8px 0; color: #666;">Фото клиента</td>
-        </tr>
-        <tr>
-          <td colspan="2" style="padding-bottom: 16px;">
-            <a href="{photo_url}">
-              <img src="{photo_url}" alt="Фото клиента" style="max-width: 400px; width: 100%; border-radius: 4px; display: block;" />
-            </a>
-          </td>
-        </tr>'''
-    else:
-        photo_html = '<tr><td style="padding: 8px 0; color: #666;">Фото</td><td style="padding: 8px 0;">—</td></tr>'
-
-    html = f"""
-    <html><body style="font-family: Arial, sans-serif; color: #222; max-width: 600px;">
-      <h2 style="border-bottom: 2px solid #000; padding-bottom: 8px;">Новая заявка на bediff</h2>
-      <table style="width:100%; border-collapse: collapse;">
-        <tr><td style="padding: 8px 0; color: #666; width: 140px;">Имя</td><td style="padding: 8px 0;"><b>{name}</b></td></tr>
-        <tr><td style="padding: 8px 0; color: #666;">Контакт</td><td style="padding: 8px 0;"><b>{contact}</b></td></tr>
-        <tr><td style="padding: 8px 0; color: #666;">Услуга</td><td style="padding: 8px 0;"><b>{service}</b></td></tr>
-        <tr><td style="padding: 8px 0; color: #666;">Пожелание</td><td style="padding: 8px 0;">{wish if wish else '—'}</td></tr>
-        {photo_html}
-      </table>
-    </body></html>
-    """
-
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = f'Новая заявка от {name} — bediff'
-    msg['From'] = gmail_user
-    msg['To'] = gmail_user
-    msg.attach(MIMEText(html, 'html'))
-
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-        server.login(gmail_user, gmail_password)
-        server.sendmail(gmail_user, gmail_user, msg.as_string())
+    schema = os.environ.get('MAIN_DB_SCHEMA', 'public')
+    conn = psycopg2.connect(os.environ['DATABASE_URL'])
+    cur = conn.cursor()
+    cur.execute(
+        f"INSERT INTO {schema}.orders (name, contact, service, wish, photo_url) VALUES (%s, %s, %s, %s, %s) RETURNING id",
+        (name, contact, service, wish or None, photo_url)
+    )
+    order_id = str(cur.fetchone()[0])
+    conn.commit()
+    cur.close()
+    conn.close()
 
     return {
         'statusCode': 200,
         'headers': cors_headers,
-        'body': json.dumps({'ok': True})
+        'body': json.dumps({'ok': True, 'order_id': order_id})
     }

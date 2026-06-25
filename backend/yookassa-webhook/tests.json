@@ -7,11 +7,11 @@
       "expectedStatus": 200
     },
     {
-      "name": "Missing name",
+      "name": "Ignores non-succeeded events",
       "method": "POST",
       "path": "/",
-      "body": {"name": "", "contact": ""},
-      "expectedStatus": 400
+      "body": {"event": "payment.waiting_for_capture"},
+      "expectedStatus": 200
     }
   ]
 }

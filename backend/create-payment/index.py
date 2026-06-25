@@ -44,7 +44,7 @@ def handler(event: dict, context) -> dict:
         'amount': {'value': amount, 'currency': 'RUB'},
         'confirmation': {
             'type': 'redirect',
-            'return_url': 'https://bediff.ru/?payment=success',
+            'return_url': f'https://bediff.ru/payment-success?order_id={order_id}',
         },
         'capture': True,
         'description': f'Заказ bediff: {service}',
