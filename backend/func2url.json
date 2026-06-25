@@ -1,4 +1,5 @@
 {
+  "check-payment": "https://functions.poehali.dev/7167e88b-419f-4e71-b89c-3432add19f3c",
   "yookassa-webhook": "https://functions.poehali.dev/0671b592-1c76-4dc4-8d5e-ec0300b04f61",
   "create-payment": "https://functions.poehali.dev/c188d01f-69a9-4c02-b967-c6d76fe52e94",
   "send-order": "https://functions.poehali.dev/f1734664-2817-4ae0-b55d-063881924103"

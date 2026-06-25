@@ -92,6 +92,9 @@ export default function OrderForm() {
 
       const payData = await payRes.json();
       if (payData.payment_url) {
+        if (payData.payment_id) {
+          localStorage.setItem("pendingPaymentId", payData.payment_id);
+        }
         window.location.href = payData.payment_url;
       } else {
         setStatus("error");

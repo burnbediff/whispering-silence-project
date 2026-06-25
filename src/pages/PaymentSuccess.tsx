@@ -1,18 +1,42 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+
+const CHECK_PAYMENT_URL = "https://functions.poehali.dev/7167e88b-419f-4e71-b89c-3432add19f3c";
 
 export default function PaymentSuccess() {
   const [searchParams] = useSearchParams();
   const orderId = searchParams.get("order_id");
-  const [dots, setDots] = useState("");
+  const navigate = useNavigate();
+  const [status, setStatus] = useState<"checking" | "paid" | "not_paid">("checking");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setDots(d => d.length >= 3 ? "" : d + ".");
-    }, 500);
-    return () => clearInterval(interval);
-  }, []);
+    const paymentId = localStorage.getItem("pendingPaymentId");
+    if (!paymentId) {
+      navigate("/", { replace: true });
+      return;
+    }
+
+    fetch(`${CHECK_PAYMENT_URL}?payment_id=${paymentId}`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.paid === true || data.status === "succeeded") {
+          localStorage.removeItem("pendingPaymentId");
+          setStatus("paid");
+        } else {
+          navigate("/", { replace: true });
+        }
+      })
+      .catch(() => navigate("/", { replace: true }));
+  }, [navigate]);
+
+  if (status === "checking") {
+    return (
+      <div className="min-h-screen bg-neutral-900 flex items-center justify-center">
+        <Icon name="Loader2" size={32} className="text-neutral-500 animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-neutral-900 flex flex-col items-center justify-center px-6 text-center">
