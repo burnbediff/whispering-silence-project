@@ -29,6 +29,7 @@ export default function Footer() {
               </h1>
               <div className="flex flex-col items-end gap-1">
                 <p className="text-white text-xs sm:text-sm">{new Date().getFullYear()} bediff</p>
+                <p className="text-neutral-400 text-xs">ИНН 525010074293</p>
                 <a href="/oferta" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors text-xs">Публичная оферта</a>
                 <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors text-xs">Политика конфиденциальности</a>
                 <a href="/cookies" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors text-xs">Соглашение о cookie</a>
