@@ -1,0 +1,17 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Missing service",
+      "method": "POST",
+      "path": "/",
+      "body": {"service": ""},
+      "expectedStatus": 400
+    }
+  ]
+}

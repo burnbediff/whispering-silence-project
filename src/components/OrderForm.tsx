@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const BACKEND_URL = "https://functions.poehali.dev/f1734664-2817-4ae0-b55d-063881924103";
+const PAYMENT_URL = "https://functions.poehali.dev/c188d01f-69a9-4c02-b967-c6d76fe52e94";
 
 const SERVICE_OPTIONS = [
   { label: "Телеграм-стикеры", disabled: false },
@@ -64,10 +65,18 @@ export default function OrderForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, contact, service, wish, photo: photoBase64, photo_name: photoName }),
       });
-      if (res.ok) {
-        setStatus("success");
-        setName(""); setContact(""); setWish(""); setPhoto(null); setPhotoPreview(null);
-        if (fileRef.current) fileRef.current.value = "";
+      if (!res.ok) { setStatus("error"); return; }
+
+      const payRes = await fetch(PAYMENT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ service }),
+      });
+      if (!payRes.ok) { setStatus("error"); return; }
+
+      const payData = await payRes.json();
+      if (payData.payment_url) {
+        window.location.href = payData.payment_url;
       } else {
         setStatus("error");
       }
@@ -226,7 +235,10 @@ export default function OrderForm() {
                   Отправляем...
                 </>
               ) : (
-                "Отправить заявку"
+                <>
+                  <Icon name="CreditCard" size={16} />
+                  Отправить и оплатить
+                </>
               )}
             </button>
           </form>
