@@ -1,3 +1,7 @@
+function selectService(service: string) {
+  localStorage.setItem("selectedService", service);
+}
+
 export default function Pricing() {
   return (
     <section id="pricing" className="bg-neutral-900 px-6 py-20">
@@ -22,6 +26,7 @@ export default function Pricing() {
             </div>
             <a
               href="#order"
+              onClick={() => selectService("Телеграм-стикеры")}
               className="bg-white text-black px-6 py-3 text-sm uppercase tracking-wide text-center transition-all duration-300 hover:bg-neutral-200"
             >
               Заказать стикеры
@@ -42,6 +47,7 @@ export default function Pricing() {
             </div>
             <a
               href="#order"
+              onClick={() => selectService("Эмодзи")}
               className="bg-white text-black px-6 py-3 text-sm uppercase tracking-wide text-center transition-all duration-300 hover:bg-neutral-200"
             >
               Заказать эмодзи

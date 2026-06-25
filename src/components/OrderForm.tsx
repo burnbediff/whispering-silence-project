@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 const BACKEND_URL = "https://functions.poehali.dev/f1734664-2817-4ae0-b55d-063881924103";
@@ -13,7 +13,10 @@ const SERVICE_OPTIONS = [
 export default function OrderForm() {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [service, setService] = useState(SERVICE_OPTIONS[0].label);
+  const [service, setService] = useState(() => {
+    const saved = localStorage.getItem("selectedService");
+    return saved && SERVICE_OPTIONS.find(o => o.label === saved) ? saved : SERVICE_OPTIONS[0].label;
+  });
   const [wish, setWish] = useState("");
   const [photo, setPhoto] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
@@ -22,6 +25,19 @@ export default function OrderForm() {
   const [agreedPrivacy, setAgreedPrivacy] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const fileRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      if (window.location.hash === "#order") {
+        const saved = localStorage.getItem("selectedService");
+        if (saved && SERVICE_OPTIONS.find(o => o.label === saved)) {
+          setService(saved);
+        }
+      }
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   const handlePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
